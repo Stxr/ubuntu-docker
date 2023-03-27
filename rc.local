@@ -1,3 +1,18 @@
 #!/bin/bash
+
+#space ship
+#curl -sS https://starship.rs/install.sh | sh
+
+# add user to sudo
+# usermod -aG sudo txr
+
+# set defualt shell to fish
+# chsh -s $(which fish)
+
+# own home directory
+chown -R txr:txr /home/txr
+
 # make ssh blocked,
-/usr/sbin/sshd -D
+/usr/sbin/sshd
+
+fish

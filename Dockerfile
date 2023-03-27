@@ -10,7 +10,9 @@ RUN chmod +x /etc/rc.local\
 RUN echo 'root:root' |chpasswd\
     && sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config\
     && sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config\
+    && sed -ri 's/#PubkeyAuthentication\s+.*/PubkeyAuthentication yes/' /etc/ssh/sshd_config\
+    && sed -ri 's/^#?StrictModes\s+.*/StrictModes no/' /etc/ssh/sshd_config\
     && mkdir /var/run/sshd
-    
+RUN 
 EXPOSE 22
 ENTRYPOINT [ "/etc/rc.local" ]
